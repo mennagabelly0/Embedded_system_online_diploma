@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1681879710 source:d:\assignment_l\unit2\find ascii\main.c
+	<stdio.h>
+	<stdlib.h>
+
