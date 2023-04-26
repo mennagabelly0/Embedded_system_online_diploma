@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1682376421 source:d:\learn in depth assignment\quiz_1_0\main.c
+	<stdio.h>
+	<stdlib.h>
+
