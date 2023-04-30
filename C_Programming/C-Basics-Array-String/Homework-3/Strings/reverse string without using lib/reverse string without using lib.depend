@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1682820470 source:d:\learn in depth assignment\unit-2\c-basics-array-string\homework-3\strings\reverse string without using lib\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
