@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1686241492 source:d:\learn in depth assignment\unit-2\mid term\q10_max number of ones between two zeros\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
