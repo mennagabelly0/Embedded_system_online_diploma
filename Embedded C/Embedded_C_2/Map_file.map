@@ -1,0 +1,80 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+Mem              0x00000000         0x04000000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x00010000                . = 0x10000
+
+.startup        0x00010000        0xc
+ startup.o(.text)
+ .text          0x00010000        0xc startup.o
+                0x00010000                reset
+
+.text           0x0001000c       0xd4
+ *(.text)
+ .text          0x0001000c       0x1c APP.o
+                0x0001000c                main
+ .text          0x00010028       0x54 UART.o
+                0x00010028                Uart_send_string
+ *(.rodata)
+ .rodata        0x0001007c       0x64 APP.o
+                0x0001007c                string_buffer_2
+
+.glue_7         0x000100e0        0x0
+ .glue_7        0x000100e0        0x0 linker stubs
+
+.glue_7t        0x000100e0        0x0
+ .glue_7t       0x000100e0        0x0 linker stubs
+
+.vfp11_veneer   0x000100e0        0x0
+ .vfp11_veneer  0x000100e0        0x0 linker stubs
+
+.v4_bx          0x000100e0        0x0
+ .v4_bx         0x000100e0        0x0 linker stubs
+
+.iplt           0x000100e0        0x0
+ .iplt          0x000100e0        0x0 startup.o
+
+.rel.dyn        0x000100e0        0x0
+ .rel.iplt      0x000100e0        0x0 startup.o
+
+.data           0x000100e0       0x64
+ *(.data)
+ .data          0x000100e0        0x0 startup.o
+ .data          0x000100e0       0x64 APP.o
+                0x000100e0                string_buffer
+ .data          0x00010144        0x0 UART.o
+
+.igot.plt       0x00010144        0x0
+ .igot.plt      0x00010144        0x0 startup.o
+
+.bss            0x00010144        0x0
+ *(.bss)
+ .bss           0x00010144        0x0 startup.o
+ .bss           0x00010144        0x0 APP.o
+ .bss           0x00010144        0x0 UART.o
+ *(COMMON)
+                0x00011144                . = (. + 0x1000)
+                0x00011144                stack_top = .
+LOAD startup.o
+LOAD APP.o
+LOAD UART.o
+OUTPUT(learn-in-depth.elf elf32-littlearm)
+
+.ARM.attributes
+                0x00000000       0x2e
+ .ARM.attributes
+                0x00000000       0x22 startup.o
+ .ARM.attributes
+                0x00000022       0x32 APP.o
+ .ARM.attributes
+                0x00000054       0x32 UART.o
+
+.comment        0x00000000       0x7e
+ .comment       0x00000000       0x7e APP.o
+                                 0x7f (size before relaxing)
+ .comment       0x0000007e       0x7f UART.o
