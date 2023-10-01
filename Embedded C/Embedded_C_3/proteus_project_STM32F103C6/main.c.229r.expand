@@ -1,0 +1,817 @@
+
+;; Function main (main, funcdef_no=0, decl_uid=4157, cgraph_uid=0, symbol_order=1)
+
+main ()
+{
+  int i;
+  int i;
+  int D.4172;
+  volatile uint32_t * _1;
+  long unsigned int _2;
+  volatile uint32_t * _3;
+  long unsigned int _4;
+  volatile uint32_t * _5;
+  long unsigned int _6;
+  volatile uint32_t * _7;
+  long unsigned int _8;
+  volatile uint32_t * _9;
+  long unsigned int _10;
+  volatile uint32_t * _11;
+  long unsigned int _12;
+  volatile union R_ODR_t * R_ODR.0_13;
+  volatile union R_ODR_t * R_ODR.1_14;
+
+;;   basic block 2, loop depth 0
+;;    pred:       ENTRY
+  _1 = 1073877016B;
+  _2 ={v} *_1;
+  _3 = 1073877016B;
+  _4 = _2 | 4;
+  *_3 ={v} _4;
+  _5 = 1073809412B;
+  _6 ={v} *_5;
+  _7 = 1073809412B;
+  _8 = _6 & 4279238655;
+  *_7 ={v} _8;
+  _9 = 1073809412B;
+  _10 ={v} *_9;
+  _11 = 1073809412B;
+  _12 = _10 | 2097152;
+  *_11 ={v} _12;
+;;    succ:       3
+
+;;   basic block 3, loop depth 1
+;;    pred:       2
+;;                9
+  R_ODR.0_13 = R_ODR;
+  R_ODR.0_13->Pin.P_13 ={v} 1;
+  i_23 = 0;
+  goto <bb 5>; [0.00%]
+;;    succ:       5
+
+;;   basic block 4, loop depth 2
+;;    pred:       5
+  i_27 = i_15 + 1;
+;;    succ:       5
+
+;;   basic block 5, loop depth 2
+;;    pred:       3
+;;                4
+  # i_15 = PHI <i_23(3), i_27(4)>
+  if (i_15 <= 4999)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 6>; [0.00%]
+;;    succ:       4
+;;                6
+
+;;   basic block 6, loop depth 1
+;;    pred:       5
+  R_ODR.1_14 = R_ODR;
+  R_ODR.1_14->Pin.P_13 ={v} 0;
+  i_25 = 0;
+  goto <bb 8>; [0.00%]
+;;    succ:       8
+
+;;   basic block 7, loop depth 2
+;;    pred:       8
+  i_26 = i_16 + 1;
+;;    succ:       8
+
+;;   basic block 8, loop depth 2
+;;    pred:       6
+;;                7
+  # i_16 = PHI <i_25(6), i_26(7)>
+  if (i_16 <= 4999)
+    goto <bb 7>; [0.00%]
+  else
+    goto <bb 9>; [0.00%]
+;;    succ:       7
+;;                9
+
+;;   basic block 9, loop depth 1
+;;    pred:       8
+  goto <bb 3>; [0.00%]
+;;    succ:       3
+
+}
+
+
+
+Partition map 
+
+Partition 1 (_1 - 1 )
+Partition 2 (_2 - 2 )
+Partition 3 (_3 - 3 )
+Partition 4 (_4 - 4 )
+Partition 5 (_5 - 5 )
+Partition 6 (_6 - 6 )
+Partition 7 (_7 - 7 )
+Partition 8 (_8 - 8 )
+Partition 9 (_9 - 9 )
+Partition 10 (_10 - 10 )
+Partition 11 (_11 - 11 )
+Partition 12 (_12 - 12 )
+Partition 13 (R_ODR.0_13 - 13 )
+Partition 14 (R_ODR.1_14 - 14 )
+Partition 15 (i_15 - 15 )
+Partition 16 (i_16 - 16 )
+Partition 23 (i_23 - 23 )
+Partition 25 (i_25 - 25 )
+Partition 26 (i_26 - 26 )
+Partition 27 (i_27 - 27 )
+Partition 28 (_28(D) - 28 )
+
+
+Partition map 
+
+Partition 0 (i_15 - 15 )
+Partition 1 (i_16 - 16 )
+Partition 2 (i_23 - 23 )
+Partition 3 (i_25 - 25 )
+Partition 4 (i_26 - 26 )
+Partition 5 (i_27 - 27 )
+Partition 6 (_28(D) - 28 )
+
+
+Conflict graph:
+
+After sorting:
+Sorted Coalesce list:
+(2147483646, 0) i_15 <-> i_23
+(2147483646, 0) i_16 <-> i_25
+(2147483646, 0) i_16 <-> i_26
+(2147483646, 0) i_15 <-> i_27
+
+Partition map 
+
+Partition 0 (i_15 - 15 )
+Partition 1 (i_16 - 16 )
+Partition 2 (i_23 - 23 )
+Partition 3 (i_25 - 25 )
+Partition 4 (i_26 - 26 )
+Partition 5 (i_27 - 27 )
+Partition 6 (_28(D) - 28 )
+
+Coalesce list: (15)i_15 & (23)i_23 [map: 0, 2] : Success -> 0
+Coalesce list: (16)i_16 & (25)i_25 [map: 1, 3] : Success -> 1
+Coalesce list: (16)i_16 & (26)i_26 [map: 1, 4] : Success -> 1
+Coalesce list: (15)i_15 & (27)i_27 [map: 0, 5] : Success -> 0
+Coalesce list: (16)i_16 & (26)i_16: Already Coalesced.
+Coalesce list: (16)i_16 & (25)i_16: Already Coalesced.
+Coalesce list: (15)i_15 & (27)i_15: Already Coalesced.
+Coalesce list: (15)i_15 & (23)i_15: Already Coalesced.
+After Coalescing:
+
+Partition map 
+
+Partition 0 (_1 - 1 )
+Partition 1 (_2 - 2 )
+Partition 2 (_3 - 3 )
+Partition 3 (_4 - 4 )
+Partition 4 (_5 - 5 )
+Partition 5 (_6 - 6 )
+Partition 6 (_7 - 7 )
+Partition 7 (_8 - 8 )
+Partition 8 (_9 - 9 )
+Partition 9 (_10 - 10 )
+Partition 10 (_11 - 11 )
+Partition 11 (_12 - 12 )
+Partition 12 (R_ODR.0_13 - 13 )
+Partition 13 (R_ODR.1_14 - 14 )
+Partition 14 (i_15 - 15 23 27 )
+Partition 15 (i_16 - 16 25 26 )
+Partition 16 (_28(D) - 28 )
+
+main ()
+{
+  int i;
+  int i;
+  int D.4172;
+  volatile uint32_t * _1;
+  long unsigned int _2;
+  volatile uint32_t * _3;
+  long unsigned int _4;
+  volatile uint32_t * _5;
+  long unsigned int _6;
+  volatile uint32_t * _7;
+  long unsigned int _8;
+  volatile uint32_t * _9;
+  long unsigned int _10;
+  volatile uint32_t * _11;
+  long unsigned int _12;
+  volatile union R_ODR_t * R_ODR.0_13;
+  volatile union R_ODR_t * R_ODR.1_14;
+
+;;   basic block 2, loop depth 0
+;;    pred:       ENTRY
+  _1 = 1073877016B;
+  _2 ={v} *_1;
+  _3 = 1073877016B;
+  _4 = _2 | 4;
+  *_3 ={v} _4;
+  _5 = 1073809412B;
+  _6 ={v} *_5;
+  _7 = 1073809412B;
+  _8 = _6 & 4279238655;
+  *_7 ={v} _8;
+  _9 = 1073809412B;
+  _10 ={v} *_9;
+  _11 = 1073809412B;
+  _12 = _10 | 2097152;
+  *_11 ={v} _12;
+;;    succ:       3
+
+;;   basic block 3, loop depth 1
+;;    pred:       2
+;;                9
+  R_ODR.0_13 = R_ODR;
+  R_ODR.0_13->Pin.P_13 ={v} 1;
+  i_23 = 0;
+  goto <bb 5>; [0.00%]
+;;    succ:       5
+
+;;   basic block 4, loop depth 2
+;;    pred:       5
+  i_27 = i_15 + 1;
+;;    succ:       5
+
+;;   basic block 5, loop depth 2
+;;    pred:       3
+;;                4
+  # i_15 = PHI <i_23(3), i_27(4)>
+  if (i_15 <= 4999)
+    goto <bb 4>; [0.00%]
+  else
+    goto <bb 6>; [0.00%]
+;;    succ:       4
+;;                6
+
+;;   basic block 6, loop depth 1
+;;    pred:       5
+  R_ODR.1_14 = R_ODR;
+  R_ODR.1_14->Pin.P_13 ={v} 0;
+  i_25 = 0;
+  goto <bb 8>; [0.00%]
+;;    succ:       8
+
+;;   basic block 7, loop depth 2
+;;    pred:       8
+  i_26 = i_16 + 1;
+;;    succ:       8
+
+;;   basic block 8, loop depth 2
+;;    pred:       6
+;;                7
+  # i_16 = PHI <i_25(6), i_26(7)>
+  if (i_16 <= 4999)
+    goto <bb 7>; [0.00%]
+  else
+    goto <bb 9>; [0.00%]
+;;    succ:       7
+;;                9
+
+;;   basic block 9, loop depth 1
+;;    pred:       8
+  goto <bb 3>; [0.00%]
+;;    succ:       3
+
+}
+
+
+
+;; Generating RTL for gimple basic block 2
+
+;; _1 = 1073877016B;
+
+(insn 5 4 0 (set (reg/f:SI 110 [ _1 ])
+        (const_int 1073877016 [0x40021018])) "main.c":29 -1
+     (nil))
+
+;; _2 ={v} *_1;
+
+(insn 6 5 0 (set (reg:SI 111 [ _2 ])
+        (mem/v:SI (reg/f:SI 110 [ _1 ]) [3 *_1+0 S4 A32])) "main.c":29 -1
+     (nil))
+
+;; _3 = 1073877016B;
+
+(insn 7 6 0 (set (reg/f:SI 112 [ _3 ])
+        (const_int 1073877016 [0x40021018])) "main.c":29 -1
+     (nil))
+
+;; _4 = _2 | 4;
+
+(insn 8 7 0 (set (reg:SI 113 [ _4 ])
+        (ior:SI (reg:SI 111 [ _2 ])
+            (const_int 4 [0x4]))) "main.c":29 -1
+     (nil))
+
+;; *_3 ={v} _4;
+
+(insn 9 8 0 (set (mem/v:SI (reg/f:SI 112 [ _3 ]) [3 *_3+0 S4 A32])
+        (reg:SI 113 [ _4 ])) "main.c":29 -1
+     (nil))
+
+;; _5 = 1073809412B;
+
+(insn 10 9 0 (set (reg/f:SI 114 [ _5 ])
+        (const_int 1073809412 [0x40010804])) "main.c":30 -1
+     (nil))
+
+;; _6 ={v} *_5;
+
+(insn 11 10 0 (set (reg:SI 115 [ _6 ])
+        (mem/v:SI (reg/f:SI 114 [ _5 ]) [3 *_5+0 S4 A32])) "main.c":30 -1
+     (nil))
+
+;; _7 = 1073809412B;
+
+(insn 12 11 0 (set (reg/f:SI 116 [ _7 ])
+        (const_int 1073809412 [0x40010804])) "main.c":30 -1
+     (nil))
+
+;; _8 = _6 & 4279238655;
+
+(insn 13 12 0 (set (reg:SI 117 [ _8 ])
+        (and:SI (reg:SI 115 [ _6 ])
+            (const_int -15728641 [0xffffffffff0fffff]))) "main.c":30 -1
+     (nil))
+
+;; *_7 ={v} _8;
+
+(insn 14 13 0 (set (mem/v:SI (reg/f:SI 116 [ _7 ]) [3 *_7+0 S4 A32])
+        (reg:SI 117 [ _8 ])) "main.c":30 -1
+     (nil))
+
+;; _9 = 1073809412B;
+
+(insn 15 14 0 (set (reg/f:SI 118 [ _9 ])
+        (const_int 1073809412 [0x40010804])) "main.c":31 -1
+     (nil))
+
+;; _10 ={v} *_9;
+
+(insn 16 15 0 (set (reg:SI 119 [ _10 ])
+        (mem/v:SI (reg/f:SI 118 [ _9 ]) [3 *_9+0 S4 A32])) "main.c":31 -1
+     (nil))
+
+;; _11 = 1073809412B;
+
+(insn 17 16 0 (set (reg/f:SI 120 [ _11 ])
+        (const_int 1073809412 [0x40010804])) "main.c":31 -1
+     (nil))
+
+;; _12 = _10 | 2097152;
+
+(insn 18 17 0 (set (reg:SI 121 [ _12 ])
+        (ior:SI (reg:SI 119 [ _10 ])
+            (const_int 2097152 [0x200000]))) "main.c":31 -1
+     (nil))
+
+;; *_11 ={v} _12;
+
+(insn 19 18 0 (set (mem/v:SI (reg/f:SI 120 [ _11 ]) [3 *_11+0 S4 A32])
+        (reg:SI 121 [ _12 ])) "main.c":31 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 3
+
+;; R_ODR.0_13 = R_ODR;
+
+(insn 21 20 22 (set (reg/f:SI 125)
+        (symbol_ref:SI ("R_ODR") [flags 0x2]  <var_decl 08235d10 R_ODR>)) "main.c":34 -1
+     (nil))
+
+(insn 22 21 0 (set (reg/f:SI 122 [ R_ODR.0_13 ])
+        (mem/f/c:SI (reg/f:SI 125) [1 R_ODR+0 S4 A32])) "main.c":34 -1
+     (nil))
+
+;; R_ODR.0_13->Pin.P_13 ={v} 1;
+
+(insn 23 22 24 (set (reg:HI 126)
+        (mem/v/j:HI (reg/f:SI 122 [ R_ODR.0_13 ]) [0 +-1 S2 A32])) "main.c":34 -1
+     (nil))
+
+(insn 24 23 25 (set (reg:SI 128)
+        (subreg:SI (reg:HI 126) 0)) "main.c":34 -1
+     (nil))
+
+(insn 25 24 26 (set (reg:SI 127)
+        (ior:SI (reg:SI 128)
+            (const_int 8192 [0x2000]))) "main.c":34 -1
+     (nil))
+
+(insn 26 25 27 (set (reg:HI 126)
+        (subreg:HI (reg:SI 127) 0)) "main.c":34 -1
+     (nil))
+
+(insn 27 26 0 (set (mem/v/j:HI (reg/f:SI 122 [ R_ODR.0_13 ]) [0 +-1 S2 A32])
+        (reg:HI 126)) "main.c":34 -1
+     (nil))
+
+;; i_23 = 0;
+
+(insn 28 27 29 (set (reg:SI 129)
+        (const_int 0 [0])) "main.c":35 -1
+     (nil))
+
+(insn 29 28 0 (set (mem/c:SI (plus:SI (reg/f:SI 105 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [2 i+0 S4 A32])
+        (reg:SI 129)) "main.c":35 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 4
+
+;; i_27 = i_15 + 1;
+
+(insn 33 32 34 (set (reg:SI 131)
+        (mem/c:SI (plus:SI (reg/f:SI 105 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [2 i+0 S4 A32])) "main.c":35 -1
+     (nil))
+
+(insn 34 33 35 (set (reg:SI 130)
+        (plus:SI (reg:SI 131)
+            (const_int 1 [0x1]))) "main.c":35 -1
+     (nil))
+
+(insn 35 34 0 (set (mem/c:SI (plus:SI (reg/f:SI 105 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [2 i+0 S4 A32])
+        (reg:SI 130)) "main.c":35 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 5
+
+;; 
+
+(code_label 36 35 37 2 (nil) [0 uses])
+
+(note 37 36 0 NOTE_INSN_BASIC_BLOCK)
+
+;; if (i_15 <= 4999)
+
+(insn 39 37 40 (set (reg:SI 132)
+        (mem/c:SI (plus:SI (reg/f:SI 105 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [2 i+0 S4 A32])) "main.c":35 -1
+     (nil))
+
+(insn 40 39 41 (set (reg:SI 133)
+        (const_int 4999 [0x1387])) "main.c":35 -1
+     (nil))
+
+(insn 41 40 42 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 132)
+            (reg:SI 133))) "main.c":35 -1
+     (nil))
+
+(jump_insn 42 41 0 (set (pc)
+        (if_then_else (le (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 38)
+            (pc))) "main.c":35 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 6
+
+;; R_ODR.1_14 = R_ODR;
+
+(insn 44 43 45 (set (reg/f:SI 134)
+        (symbol_ref:SI ("R_ODR") [flags 0x2]  <var_decl 08235d10 R_ODR>)) "main.c":36 -1
+     (nil))
+
+(insn 45 44 0 (set (reg/f:SI 123 [ R_ODR.1_14 ])
+        (mem/f/c:SI (reg/f:SI 134) [1 R_ODR+0 S4 A32])) "main.c":36 -1
+     (nil))
+
+;; R_ODR.1_14->Pin.P_13 ={v} 0;
+
+(insn 46 45 47 (set (reg:HI 135)
+        (mem/v/j:HI (reg/f:SI 123 [ R_ODR.1_14 ]) [0 +-1 S2 A32])) "main.c":36 -1
+     (nil))
+
+(insn 47 46 48 (set (zero_extract:SI (subreg:SI (reg:HI 135) 0)
+            (const_int 1 [0x1])
+            (const_int 13 [0xd]))
+        (const_int 0 [0])) "main.c":36 -1
+     (nil))
+
+(insn 48 47 0 (set (mem/v/j:HI (reg/f:SI 123 [ R_ODR.1_14 ]) [0 +-1 S2 A32])
+        (reg:HI 135)) "main.c":36 -1
+     (nil))
+
+;; i_25 = 0;
+
+(insn 49 48 50 (set (reg:SI 136)
+        (const_int 0 [0])) "main.c":37 -1
+     (nil))
+
+(insn 50 49 0 (set (mem/c:SI (plus:SI (reg/f:SI 105 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [2 i+0 S4 A32])
+        (reg:SI 136)) "main.c":37 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 7
+
+;; i_26 = i_16 + 1;
+
+(insn 54 53 55 (set (reg:SI 138)
+        (mem/c:SI (plus:SI (reg/f:SI 105 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [2 i+0 S4 A32])) "main.c":37 -1
+     (nil))
+
+(insn 55 54 56 (set (reg:SI 137)
+        (plus:SI (reg:SI 138)
+            (const_int 1 [0x1]))) "main.c":37 -1
+     (nil))
+
+(insn 56 55 0 (set (mem/c:SI (plus:SI (reg/f:SI 105 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [2 i+0 S4 A32])
+        (reg:SI 137)) "main.c":37 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 8
+
+;; 
+
+(code_label 57 56 58 4 (nil) [0 uses])
+
+(note 58 57 0 NOTE_INSN_BASIC_BLOCK)
+
+;; if (i_16 <= 4999)
+
+(insn 60 58 61 (set (reg:SI 139)
+        (mem/c:SI (plus:SI (reg/f:SI 105 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [2 i+0 S4 A32])) "main.c":37 -1
+     (nil))
+
+(insn 61 60 62 (set (reg:SI 140)
+        (const_int 4999 [0x1387])) "main.c":37 -1
+     (nil))
+
+(insn 62 61 63 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 139)
+            (reg:SI 140))) "main.c":37 -1
+     (nil))
+
+(jump_insn 63 62 0 (set (pc)
+        (if_then_else (le (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 59)
+            (pc))) "main.c":37 -1
+     (nil))
+
+;; Generating RTL for gimple basic block 9
+deleting block 11
+
+
+try_optimize_cfg iteration 1
+
+Merging block 3 into block 2...
+Merged blocks 2 and 3.
+Merged 2 and 3 without moving.
+
+
+try_optimize_cfg iteration 2
+
+fix_loop_structure: fixing up loops for function
+
+
+;;
+;; Full RTL generated for this function:
+;;
+(note 1 0 3 NOTE_INSN_DELETED)
+;; basic block 2, loop depth 0, count 0, freq 0, maybe hot
+;;  prev block 0, next block 4, flags: (NEW, REACHABLE, RTL)
+;;  pred:       ENTRY (FALLTHRU)
+(note 3 1 2 2 [bb 2] NOTE_INSN_BASIC_BLOCK)
+(note 2 3 5 2 NOTE_INSN_FUNCTION_BEG)
+(insn 5 2 6 2 (set (reg/f:SI 110 [ _1 ])
+        (const_int 1073877016 [0x40021018])) "main.c":29 -1
+     (nil))
+(insn 6 5 7 2 (set (reg:SI 111 [ _2 ])
+        (mem/v:SI (reg/f:SI 110 [ _1 ]) [3 *_1+0 S4 A32])) "main.c":29 -1
+     (nil))
+(insn 7 6 8 2 (set (reg/f:SI 112 [ _3 ])
+        (const_int 1073877016 [0x40021018])) "main.c":29 -1
+     (nil))
+(insn 8 7 9 2 (set (reg:SI 113 [ _4 ])
+        (ior:SI (reg:SI 111 [ _2 ])
+            (const_int 4 [0x4]))) "main.c":29 -1
+     (nil))
+(insn 9 8 10 2 (set (mem/v:SI (reg/f:SI 112 [ _3 ]) [3 *_3+0 S4 A32])
+        (reg:SI 113 [ _4 ])) "main.c":29 -1
+     (nil))
+(insn 10 9 11 2 (set (reg/f:SI 114 [ _5 ])
+        (const_int 1073809412 [0x40010804])) "main.c":30 -1
+     (nil))
+(insn 11 10 12 2 (set (reg:SI 115 [ _6 ])
+        (mem/v:SI (reg/f:SI 114 [ _5 ]) [3 *_5+0 S4 A32])) "main.c":30 -1
+     (nil))
+(insn 12 11 13 2 (set (reg/f:SI 116 [ _7 ])
+        (const_int 1073809412 [0x40010804])) "main.c":30 -1
+     (nil))
+(insn 13 12 14 2 (set (reg:SI 117 [ _8 ])
+        (and:SI (reg:SI 115 [ _6 ])
+            (const_int -15728641 [0xffffffffff0fffff]))) "main.c":30 -1
+     (nil))
+(insn 14 13 15 2 (set (mem/v:SI (reg/f:SI 116 [ _7 ]) [3 *_7+0 S4 A32])
+        (reg:SI 117 [ _8 ])) "main.c":30 -1
+     (nil))
+(insn 15 14 16 2 (set (reg/f:SI 118 [ _9 ])
+        (const_int 1073809412 [0x40010804])) "main.c":31 -1
+     (nil))
+(insn 16 15 17 2 (set (reg:SI 119 [ _10 ])
+        (mem/v:SI (reg/f:SI 118 [ _9 ]) [3 *_9+0 S4 A32])) "main.c":31 -1
+     (nil))
+(insn 17 16 18 2 (set (reg/f:SI 120 [ _11 ])
+        (const_int 1073809412 [0x40010804])) "main.c":31 -1
+     (nil))
+(insn 18 17 19 2 (set (reg:SI 121 [ _12 ])
+        (ior:SI (reg:SI 119 [ _10 ])
+            (const_int 2097152 [0x200000]))) "main.c":31 -1
+     (nil))
+(insn 19 18 65 2 (set (mem/v:SI (reg/f:SI 120 [ _11 ]) [3 *_11+0 S4 A32])
+        (reg:SI 121 [ _12 ])) "main.c":31 -1
+     (nil))
+;;  succ:       4 (FALLTHRU)
+
+;; basic block 4, loop depth 1, count 0, freq 0, maybe hot
+;;  prev block 2, next block 5, flags: (NEW, REACHABLE, RTL)
+;;  pred:       2 (FALLTHRU)
+;;              10 (DFS_BACK)
+(code_label 65 19 20 4 6 (nil) [1 uses])
+(note 20 65 21 4 [bb 4] NOTE_INSN_BASIC_BLOCK)
+(insn 21 20 22 4 (set (reg/f:SI 125)
+        (symbol_ref:SI ("R_ODR") [flags 0x2]  <var_decl 08235d10 R_ODR>)) "main.c":34 -1
+     (nil))
+(insn 22 21 23 4 (set (reg/f:SI 122 [ R_ODR.0_13 ])
+        (mem/f/c:SI (reg/f:SI 125) [1 R_ODR+0 S4 A32])) "main.c":34 -1
+     (nil))
+(insn 23 22 24 4 (set (reg:HI 126)
+        (mem/v/j:HI (reg/f:SI 122 [ R_ODR.0_13 ]) [0 +-1 S2 A32])) "main.c":34 -1
+     (nil))
+(insn 24 23 25 4 (set (reg:SI 128)
+        (subreg:SI (reg:HI 126) 0)) "main.c":34 -1
+     (nil))
+(insn 25 24 26 4 (set (reg:SI 127)
+        (ior:SI (reg:SI 128)
+            (const_int 8192 [0x2000]))) "main.c":34 -1
+     (nil))
+(insn 26 25 27 4 (set (reg:HI 126)
+        (subreg:HI (reg:SI 127) 0)) "main.c":34 -1
+     (nil))
+(insn 27 26 28 4 (set (mem/v/j:HI (reg/f:SI 122 [ R_ODR.0_13 ]) [0 +-1 S2 A32])
+        (reg:HI 126)) "main.c":34 -1
+     (nil))
+(insn 28 27 29 4 (set (reg:SI 129)
+        (const_int 0 [0])) "main.c":35 -1
+     (nil))
+(insn 29 28 30 4 (set (mem/c:SI (plus:SI (reg/f:SI 105 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [2 i+0 S4 A32])
+        (reg:SI 129)) "main.c":35 -1
+     (nil))
+(jump_insn 30 29 31 4 (set (pc)
+        (label_ref 36)) "main.c":35 -1
+     (nil)
+ -> 36)
+;;  succ:       6
+
+(barrier 31 30 38)
+;; basic block 5, loop depth 2, count 0, freq 0, maybe hot
+;;  prev block 4, next block 6, flags: (NEW, REACHABLE, RTL)
+;;  pred:       6
+(code_label 38 31 32 5 3 (nil) [1 uses])
+(note 32 38 33 5 [bb 5] NOTE_INSN_BASIC_BLOCK)
+(insn 33 32 34 5 (set (reg:SI 131)
+        (mem/c:SI (plus:SI (reg/f:SI 105 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [2 i+0 S4 A32])) "main.c":35 -1
+     (nil))
+(insn 34 33 35 5 (set (reg:SI 130)
+        (plus:SI (reg:SI 131)
+            (const_int 1 [0x1]))) "main.c":35 -1
+     (nil))
+(insn 35 34 36 5 (set (mem/c:SI (plus:SI (reg/f:SI 105 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [2 i+0 S4 A32])
+        (reg:SI 130)) "main.c":35 -1
+     (nil))
+;;  succ:       6 (FALLTHRU,DFS_BACK)
+
+;; basic block 6, loop depth 2, count 0, freq 0, maybe hot
+;;  prev block 5, next block 7, flags: (NEW, REACHABLE, RTL)
+;;  pred:       4
+;;              5 (FALLTHRU,DFS_BACK)
+(code_label 36 35 37 6 2 (nil) [1 uses])
+(note 37 36 39 6 [bb 6] NOTE_INSN_BASIC_BLOCK)
+(insn 39 37 40 6 (set (reg:SI 132)
+        (mem/c:SI (plus:SI (reg/f:SI 105 virtual-stack-vars)
+                (const_int -4 [0xfffffffffffffffc])) [2 i+0 S4 A32])) "main.c":35 -1
+     (nil))
+(insn 40 39 41 6 (set (reg:SI 133)
+        (const_int 4999 [0x1387])) "main.c":35 -1
+     (nil))
+(insn 41 40 42 6 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 132)
+            (reg:SI 133))) "main.c":35 -1
+     (nil))
+(jump_insn 42 41 43 6 (set (pc)
+        (if_then_else (le (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 38)
+            (pc))) "main.c":35 -1
+     (nil)
+ -> 38)
+;;  succ:       5
+;;              7 (FALLTHRU)
+
+;; basic block 7, loop depth 1, count 0, freq 0, maybe hot
+;;  prev block 6, next block 8, flags: (NEW, REACHABLE, RTL)
+;;  pred:       6 (FALLTHRU)
+(note 43 42 44 7 [bb 7] NOTE_INSN_BASIC_BLOCK)
+(insn 44 43 45 7 (set (reg/f:SI 134)
+        (symbol_ref:SI ("R_ODR") [flags 0x2]  <var_decl 08235d10 R_ODR>)) "main.c":36 -1
+     (nil))
+(insn 45 44 46 7 (set (reg/f:SI 123 [ R_ODR.1_14 ])
+        (mem/f/c:SI (reg/f:SI 134) [1 R_ODR+0 S4 A32])) "main.c":36 -1
+     (nil))
+(insn 46 45 47 7 (set (reg:HI 135)
+        (mem/v/j:HI (reg/f:SI 123 [ R_ODR.1_14 ]) [0 +-1 S2 A32])) "main.c":36 -1
+     (nil))
+(insn 47 46 48 7 (set (zero_extract:SI (subreg:SI (reg:HI 135) 0)
+            (const_int 1 [0x1])
+            (const_int 13 [0xd]))
+        (const_int 0 [0])) "main.c":36 -1
+     (nil))
+(insn 48 47 49 7 (set (mem/v/j:HI (reg/f:SI 123 [ R_ODR.1_14 ]) [0 +-1 S2 A32])
+        (reg:HI 135)) "main.c":36 -1
+     (nil))
+(insn 49 48 50 7 (set (reg:SI 136)
+        (const_int 0 [0])) "main.c":37 -1
+     (nil))
+(insn 50 49 51 7 (set (mem/c:SI (plus:SI (reg/f:SI 105 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [2 i+0 S4 A32])
+        (reg:SI 136)) "main.c":37 -1
+     (nil))
+(jump_insn 51 50 52 7 (set (pc)
+        (label_ref 57)) "main.c":37 -1
+     (nil)
+ -> 57)
+;;  succ:       9
+
+(barrier 52 51 59)
+;; basic block 8, loop depth 2, count 0, freq 0, maybe hot
+;;  prev block 7, next block 9, flags: (NEW, REACHABLE, RTL)
+;;  pred:       9
+(code_label 59 52 53 8 5 (nil) [1 uses])
+(note 53 59 54 8 [bb 8] NOTE_INSN_BASIC_BLOCK)
+(insn 54 53 55 8 (set (reg:SI 138)
+        (mem/c:SI (plus:SI (reg/f:SI 105 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [2 i+0 S4 A32])) "main.c":37 -1
+     (nil))
+(insn 55 54 56 8 (set (reg:SI 137)
+        (plus:SI (reg:SI 138)
+            (const_int 1 [0x1]))) "main.c":37 -1
+     (nil))
+(insn 56 55 57 8 (set (mem/c:SI (plus:SI (reg/f:SI 105 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [2 i+0 S4 A32])
+        (reg:SI 137)) "main.c":37 -1
+     (nil))
+;;  succ:       9 (FALLTHRU,DFS_BACK)
+
+;; basic block 9, loop depth 2, count 0, freq 0, maybe hot
+;;  prev block 8, next block 10, flags: (NEW, REACHABLE, RTL)
+;;  pred:       7
+;;              8 (FALLTHRU,DFS_BACK)
+(code_label 57 56 58 9 4 (nil) [1 uses])
+(note 58 57 60 9 [bb 9] NOTE_INSN_BASIC_BLOCK)
+(insn 60 58 61 9 (set (reg:SI 139)
+        (mem/c:SI (plus:SI (reg/f:SI 105 virtual-stack-vars)
+                (const_int -8 [0xfffffffffffffff8])) [2 i+0 S4 A32])) "main.c":37 -1
+     (nil))
+(insn 61 60 62 9 (set (reg:SI 140)
+        (const_int 4999 [0x1387])) "main.c":37 -1
+     (nil))
+(insn 62 61 63 9 (set (reg:CC 100 cc)
+        (compare:CC (reg:SI 139)
+            (reg:SI 140))) "main.c":37 -1
+     (nil))
+(jump_insn 63 62 64 9 (set (pc)
+        (if_then_else (le (reg:CC 100 cc)
+                (const_int 0 [0]))
+            (label_ref 59)
+            (pc))) "main.c":37 -1
+     (nil)
+ -> 59)
+;;  succ:       8
+;;              10 (FALLTHRU)
+
+;; basic block 10, loop depth 1, count 0, freq 0, maybe hot
+;;  prev block 9, next block 1, flags: (NEW, REACHABLE, RTL)
+;;  pred:       9 (FALLTHRU)
+(note 64 63 66 10 [bb 10] NOTE_INSN_BASIC_BLOCK)
+(jump_insn 66 64 67 10 (set (pc)
+        (label_ref 65)) "main.c":34 -1
+     (nil)
+ -> 65)
+;;  succ:       4 (DFS_BACK)
+
+(barrier 67 66 0)
