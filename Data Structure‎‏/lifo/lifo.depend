@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1697373005 source:d:\learn in depth assignment\unit-4\ds_lesson1\lifo\lifo\lifo.c
+	<stdio.h>
+	<stdlib.h>
+	"Lifo.h"
+
+1697373005 d:\learn in depth assignment\unit-4\ds_lesson1\lifo\lifo\lifo.h
+
+1697467584 source:d:\learn in depth assignment\unit-4\ds_lesson1\lifo\lifo\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Lifo.h"
+

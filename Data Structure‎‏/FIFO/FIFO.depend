@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1697465938 source:d:\learn in depth assignment\unit-4\ds_lesson1\fifo\fifo\main.c
+	<stdio.h>
+	<stdlib.h>
+	"fifo.h"
+
+1697406488 d:\learn in depth assignment\unit-4\ds_lesson1\fifo\fifo\fifo.h
+	"stdio.h"
+	"stdint.h"
+
+1697466320 source:d:\learn in depth assignment\unit-4\ds_lesson1\fifo\fifo\fifo.c
+	"fifo.h"
+	"stdio.h"
+	"stdint.h"
+
