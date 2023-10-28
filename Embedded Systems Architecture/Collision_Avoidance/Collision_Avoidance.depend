@@ -1,0 +1,42 @@
+# depslib dependency file v1.0
+1698503368 source:d:\learn in depth assignment\unit-4\embedded systems architecture\collision_avoidance\dc.c
+	"DC.h"
+	"state.h"
+	"stdio.h"
+	"stdlib.h"
+
+1698417805 d:\learn in depth assignment\unit-4\embedded systems architecture\collision_avoidance\dc.h
+	"state.h"
+
+1698501935 d:\learn in depth assignment\unit-4\embedded systems architecture\collision_avoidance\state.h
+	"stdio.h"
+	"stdlib.h"
+
+1698503714 source:d:\learn in depth assignment\unit-4\embedded systems architecture\collision_avoidance\main.c
+	"stdio.h"
+	"stdlib.h"
+	<conio.h>
+	<stdlib.h>
+	"CA.h"
+	"DC.h"
+	"state.h"
+	"US.h"
+
+1698422233 d:\learn in depth assignment\unit-4\embedded systems architecture\collision_avoidance\ca.h
+	"state.h"
+
+1698502888 source:d:\learn in depth assignment\unit-4\embedded systems architecture\collision_avoidance\us.c
+	"US.h"
+	"state.h"
+	"CA.h"
+
+1698422402 d:\learn in depth assignment\unit-4\embedded systems architecture\collision_avoidance\us.h
+	"state.h"
+
+1698504009 source:d:\learn in depth assignment\unit-4\embedded systems architecture\collision_avoidance\ca.c
+	"CA.h"
+	"state.h"
+	<conio.h>
+	<stdlib.h>
+	<time.h>
+

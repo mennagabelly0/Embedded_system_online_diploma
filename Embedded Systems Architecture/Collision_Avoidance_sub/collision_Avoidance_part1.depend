@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1698363707 source:d:\learn in depth assignment\unit-4\embedded systems architecture\collision_avoidance_part1\ac.c
+	"AC.h"
+	"state.h"
+
+1698363707 d:\learn in depth assignment\unit-4\embedded systems architecture\collision_avoidance_part1\ac.h
+	"state.h"
+
+1698364836 source:d:\learn in depth assignment\unit-4\embedded systems architecture\collision_avoidance_part1\main.c
+	"stdio.h"
+	"stdlib.h"
+	<conio.h>
+	<stdlib.h>
+	"AC.h"
+	"state.h"
+
+1698362308 d:\learn in depth assignment\unit-4\embedded systems architecture\collision_avoidance_part1\state.h
+
