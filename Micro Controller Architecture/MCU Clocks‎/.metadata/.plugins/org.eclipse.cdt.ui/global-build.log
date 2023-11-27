@@ -1,0 +1,17 @@
+01:17:08 **** Incremental Build of configuration Debug for project toggle port A pin 13 ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "toggle port A pin 13.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\learn in depth Assignment\Unit-6\lesson 3\toggle port A pin 13\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="toggle port A pin 13.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: toggle port A pin 13.elf
+ 
+arm-none-eabi-objdump -h -S  toggle\ port\ A\ pin\ 13.elf  > "toggle port A pin 13.list"
+arm-none-eabi-objcopy  -O binary  toggle\ port\ A\ pin\ 13.elf  "toggle port A pin 13.bin"
+arm-none-eabi-size   toggle\ port\ A\ pin\ 13.elf 
+   text	   data	    bss	    dec	    hex	filename
+    700	      8	   1568	   2276	    8e4	toggle port A pin 13.elf
+Finished building: default.size.stdout
+ 
+Finished building: toggle port A pin 13.list
+Finished building: toggle port A pin 13.bin
+ 
+ 
