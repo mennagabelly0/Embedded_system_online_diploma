@@ -1,0 +1,376 @@
+
+interrupt in atmega32.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000254  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  000002a8  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  000002a8  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000002d8  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000038  00000000  00000000  00000314  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000006a1  00000000  00000000  0000034c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000591  00000000  00000000  000009ed  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000002d4  00000000  00000000  00000f7e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000000c0  00000000  00000000  00001254  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    00000350  00000000  00000000  00001314  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    00000228  00000000  00000000  00001664  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000028  00000000  00000000  0000188c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 b6 00 	jmp	0x16c	; 0x16c <__vector_1>
+   8:	0c 94 dc 00 	jmp	0x1b8	; 0x1b8 <__vector_2>
+   c:	0c 94 02 01 	jmp	0x204	; 0x204 <__vector_3>
+  10:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  14:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  18:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  1c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  20:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  24:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  28:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  2c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  30:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  34:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  38:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  3c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  40:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  44:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  48:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  4c:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+  50:	0c 94 34 00 	jmp	0x68	; 0x68 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+  60:	0e 94 36 00 	call	0x6c	; 0x6c <main>
+  64:	0c 94 28 01 	jmp	0x250	; 0x250 <_exit>
+
+00000068 <__bad_interrupt>:
+  68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000006c <main>:
+ 
+
+int main(void)
+{
+	// pin (5,6,7) output in PortD pin =0
+	Set_bit(DDRD,5) ;
+  6c:	81 b3       	in	r24, 0x11	; 17
+  6e:	92 b3       	in	r25, 0x12	; 18
+  70:	a3 b3       	in	r26, 0x13	; 19
+  72:	b4 b3       	in	r27, 0x14	; 20
+  74:	80 62       	ori	r24, 0x20	; 32
+  76:	81 bb       	out	0x11, r24	; 17
+  78:	92 bb       	out	0x12, r25	; 18
+  7a:	a3 bb       	out	0x13, r26	; 19
+  7c:	b4 bb       	out	0x14, r27	; 20
+	Set_bit(DDRD,6) ;
+  7e:	81 b3       	in	r24, 0x11	; 17
+  80:	92 b3       	in	r25, 0x12	; 18
+  82:	a3 b3       	in	r26, 0x13	; 19
+  84:	b4 b3       	in	r27, 0x14	; 20
+  86:	80 64       	ori	r24, 0x40	; 64
+  88:	81 bb       	out	0x11, r24	; 17
+  8a:	92 bb       	out	0x12, r25	; 18
+  8c:	a3 bb       	out	0x13, r26	; 19
+  8e:	b4 bb       	out	0x14, r27	; 20
+	Set_bit(DDRD,7) ;
+  90:	81 b3       	in	r24, 0x11	; 17
+  92:	92 b3       	in	r25, 0x12	; 18
+  94:	a3 b3       	in	r26, 0x13	; 19
+  96:	b4 b3       	in	r27, 0x14	; 20
+  98:	80 68       	ori	r24, 0x80	; 128
+  9a:	81 bb       	out	0x11, r24	; 17
+  9c:	92 bb       	out	0x12, r25	; 18
+  9e:	a3 bb       	out	0x13, r26	; 19
+  a0:	b4 bb       	out	0x14, r27	; 20
+	// sit INT0 logical
+	Set_bit(MCUCR,0) ;
+  a2:	85 b7       	in	r24, 0x35	; 53
+  a4:	96 b7       	in	r25, 0x36	; 54
+  a6:	a7 b7       	in	r26, 0x37	; 55
+  a8:	b8 b7       	in	r27, 0x38	; 56
+  aa:	81 60       	ori	r24, 0x01	; 1
+  ac:	85 bf       	out	0x35, r24	; 53
+  ae:	96 bf       	out	0x36, r25	; 54
+  b0:	a7 bf       	out	0x37, r26	; 55
+  b2:	b8 bf       	out	0x38, r27	; 56
+	Reset_bit(MCUCR,1) ;
+  b4:	85 b7       	in	r24, 0x35	; 53
+  b6:	96 b7       	in	r25, 0x36	; 54
+  b8:	a7 b7       	in	r26, 0x37	; 55
+  ba:	b8 b7       	in	r27, 0x38	; 56
+  bc:	8d 7f       	andi	r24, 0xFD	; 253
+  be:	85 bf       	out	0x35, r24	; 53
+  c0:	96 bf       	out	0x36, r25	; 54
+  c2:	a7 bf       	out	0x37, r26	; 55
+  c4:	b8 bf       	out	0x38, r27	; 56
+	// sit INT1 Rising edge
+	Set_bit(MCUCR,2) ;
+  c6:	85 b7       	in	r24, 0x35	; 53
+  c8:	96 b7       	in	r25, 0x36	; 54
+  ca:	a7 b7       	in	r26, 0x37	; 55
+  cc:	b8 b7       	in	r27, 0x38	; 56
+  ce:	84 60       	ori	r24, 0x04	; 4
+  d0:	85 bf       	out	0x35, r24	; 53
+  d2:	96 bf       	out	0x36, r25	; 54
+  d4:	a7 bf       	out	0x37, r26	; 55
+  d6:	b8 bf       	out	0x38, r27	; 56
+	Set_bit(MCUCR,3) ;
+  d8:	85 b7       	in	r24, 0x35	; 53
+  da:	96 b7       	in	r25, 0x36	; 54
+  dc:	a7 b7       	in	r26, 0x37	; 55
+  de:	b8 b7       	in	r27, 0x38	; 56
+  e0:	88 60       	ori	r24, 0x08	; 8
+  e2:	85 bf       	out	0x35, r24	; 53
+  e4:	96 bf       	out	0x36, r25	; 54
+  e6:	a7 bf       	out	0x37, r26	; 55
+  e8:	b8 bf       	out	0x38, r27	; 56
+	// sit INT2 Falling edge
+	Reset_bit(MCUCSR,6) ;
+  ea:	84 b7       	in	r24, 0x34	; 52
+  ec:	95 b7       	in	r25, 0x35	; 53
+  ee:	a6 b7       	in	r26, 0x36	; 54
+  f0:	b7 b7       	in	r27, 0x37	; 55
+  f2:	8f 7b       	andi	r24, 0xBF	; 191
+  f4:	84 bf       	out	0x34, r24	; 52
+  f6:	95 bf       	out	0x35, r25	; 53
+  f8:	a6 bf       	out	0x36, r26	; 54
+  fa:	b7 bf       	out	0x37, r27	; 55
+	//Enable all INT0 ,INT1 , TNT2
+	Set_bit(GICR,5) ;
+  fc:	8b b7       	in	r24, 0x3b	; 59
+  fe:	9c b7       	in	r25, 0x3c	; 60
+ 100:	ad b7       	in	r26, 0x3d	; 61
+ 102:	be b7       	in	r27, 0x3e	; 62
+ 104:	80 62       	ori	r24, 0x20	; 32
+ 106:	8b bf       	out	0x3b, r24	; 59
+ 108:	9c bf       	out	0x3c, r25	; 60
+ 10a:	ad bf       	out	0x3d, r26	; 61
+ 10c:	be bf       	out	0x3e, r27	; 62
+	Set_bit(GICR,6) ;
+ 10e:	8b b7       	in	r24, 0x3b	; 59
+ 110:	9c b7       	in	r25, 0x3c	; 60
+ 112:	ad b7       	in	r26, 0x3d	; 61
+ 114:	be b7       	in	r27, 0x3e	; 62
+ 116:	80 64       	ori	r24, 0x40	; 64
+ 118:	8b bf       	out	0x3b, r24	; 59
+ 11a:	9c bf       	out	0x3c, r25	; 60
+ 11c:	ad bf       	out	0x3d, r26	; 61
+ 11e:	be bf       	out	0x3e, r27	; 62
+	Set_bit(GICR,7) ;
+ 120:	8b b7       	in	r24, 0x3b	; 59
+ 122:	9c b7       	in	r25, 0x3c	; 60
+ 124:	ad b7       	in	r26, 0x3d	; 61
+ 126:	be b7       	in	r27, 0x3e	; 62
+ 128:	80 68       	ori	r24, 0x80	; 128
+ 12a:	8b bf       	out	0x3b, r24	; 59
+ 12c:	9c bf       	out	0x3c, r25	; 60
+ 12e:	ad bf       	out	0x3d, r26	; 61
+ 130:	be bf       	out	0x3e, r27	; 62
+	//Enable global interrupt
+	sei();
+ 132:	78 94       	sei
+
+    while (1) 
+    {
+		Reset_bit(PORTD,5) ;
+ 134:	82 b3       	in	r24, 0x12	; 18
+ 136:	93 b3       	in	r25, 0x13	; 19
+ 138:	a4 b3       	in	r26, 0x14	; 20
+ 13a:	b5 b3       	in	r27, 0x15	; 21
+ 13c:	8f 7d       	andi	r24, 0xDF	; 223
+ 13e:	82 bb       	out	0x12, r24	; 18
+ 140:	93 bb       	out	0x13, r25	; 19
+ 142:	a4 bb       	out	0x14, r26	; 20
+ 144:	b5 bb       	out	0x15, r27	; 21
+		Reset_bit(PORTD,6) ;
+ 146:	82 b3       	in	r24, 0x12	; 18
+ 148:	93 b3       	in	r25, 0x13	; 19
+ 14a:	a4 b3       	in	r26, 0x14	; 20
+ 14c:	b5 b3       	in	r27, 0x15	; 21
+ 14e:	8f 7b       	andi	r24, 0xBF	; 191
+ 150:	82 bb       	out	0x12, r24	; 18
+ 152:	93 bb       	out	0x13, r25	; 19
+ 154:	a4 bb       	out	0x14, r26	; 20
+ 156:	b5 bb       	out	0x15, r27	; 21
+		Reset_bit(PORTD,7) ;
+ 158:	82 b3       	in	r24, 0x12	; 18
+ 15a:	93 b3       	in	r25, 0x13	; 19
+ 15c:	a4 b3       	in	r26, 0x14	; 20
+ 15e:	b5 b3       	in	r27, 0x15	; 21
+ 160:	8f 77       	andi	r24, 0x7F	; 127
+ 162:	82 bb       	out	0x12, r24	; 18
+ 164:	93 bb       	out	0x13, r25	; 19
+ 166:	a4 bb       	out	0x14, r26	; 20
+ 168:	b5 bb       	out	0x15, r27	; 21
+ 16a:	e4 cf       	rjmp	.-56     	; 0x134 <main+0xc8>
+
+0000016c <__vector_1>:
+    }
+	return 0;
+}
+// ISR INT0,1,2
+ISR(INT0_vect)
+{
+ 16c:	1f 92       	push	r1
+ 16e:	0f 92       	push	r0
+ 170:	0f b6       	in	r0, 0x3f	; 63
+ 172:	0f 92       	push	r0
+ 174:	11 24       	eor	r1, r1
+ 176:	2f 93       	push	r18
+ 178:	8f 93       	push	r24
+ 17a:	9f 93       	push	r25
+ 17c:	af 93       	push	r26
+ 17e:	bf 93       	push	r27
+	Set_bit(PORTD,5) ;
+ 180:	82 b3       	in	r24, 0x12	; 18
+ 182:	93 b3       	in	r25, 0x13	; 19
+ 184:	a4 b3       	in	r26, 0x14	; 20
+ 186:	b5 b3       	in	r27, 0x15	; 21
+ 188:	80 62       	ori	r24, 0x20	; 32
+ 18a:	82 bb       	out	0x12, r24	; 18
+ 18c:	93 bb       	out	0x13, r25	; 19
+ 18e:	a4 bb       	out	0x14, r26	; 20
+ 190:	b5 bb       	out	0x15, r27	; 21
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 192:	2f e3       	ldi	r18, 0x3F	; 63
+ 194:	8d e0       	ldi	r24, 0x0D	; 13
+ 196:	93 e0       	ldi	r25, 0x03	; 3
+ 198:	21 50       	subi	r18, 0x01	; 1
+ 19a:	80 40       	sbci	r24, 0x00	; 0
+ 19c:	90 40       	sbci	r25, 0x00	; 0
+ 19e:	e1 f7       	brne	.-8      	; 0x198 <__vector_1+0x2c>
+ 1a0:	00 c0       	rjmp	.+0      	; 0x1a2 <__vector_1+0x36>
+ 1a2:	00 00       	nop
+	_delay_ms(1000) ;
+}
+ 1a4:	bf 91       	pop	r27
+ 1a6:	af 91       	pop	r26
+ 1a8:	9f 91       	pop	r25
+ 1aa:	8f 91       	pop	r24
+ 1ac:	2f 91       	pop	r18
+ 1ae:	0f 90       	pop	r0
+ 1b0:	0f be       	out	0x3f, r0	; 63
+ 1b2:	0f 90       	pop	r0
+ 1b4:	1f 90       	pop	r1
+ 1b6:	18 95       	reti
+
+000001b8 <__vector_2>:
+ISR(INT1_vect)
+{
+ 1b8:	1f 92       	push	r1
+ 1ba:	0f 92       	push	r0
+ 1bc:	0f b6       	in	r0, 0x3f	; 63
+ 1be:	0f 92       	push	r0
+ 1c0:	11 24       	eor	r1, r1
+ 1c2:	2f 93       	push	r18
+ 1c4:	8f 93       	push	r24
+ 1c6:	9f 93       	push	r25
+ 1c8:	af 93       	push	r26
+ 1ca:	bf 93       	push	r27
+	Set_bit(PORTD,6) ;
+ 1cc:	82 b3       	in	r24, 0x12	; 18
+ 1ce:	93 b3       	in	r25, 0x13	; 19
+ 1d0:	a4 b3       	in	r26, 0x14	; 20
+ 1d2:	b5 b3       	in	r27, 0x15	; 21
+ 1d4:	80 64       	ori	r24, 0x40	; 64
+ 1d6:	82 bb       	out	0x12, r24	; 18
+ 1d8:	93 bb       	out	0x13, r25	; 19
+ 1da:	a4 bb       	out	0x14, r26	; 20
+ 1dc:	b5 bb       	out	0x15, r27	; 21
+ 1de:	2f e3       	ldi	r18, 0x3F	; 63
+ 1e0:	8d e0       	ldi	r24, 0x0D	; 13
+ 1e2:	93 e0       	ldi	r25, 0x03	; 3
+ 1e4:	21 50       	subi	r18, 0x01	; 1
+ 1e6:	80 40       	sbci	r24, 0x00	; 0
+ 1e8:	90 40       	sbci	r25, 0x00	; 0
+ 1ea:	e1 f7       	brne	.-8      	; 0x1e4 <__vector_2+0x2c>
+ 1ec:	00 c0       	rjmp	.+0      	; 0x1ee <__vector_2+0x36>
+ 1ee:	00 00       	nop
+	_delay_ms(1000);
+}
+ 1f0:	bf 91       	pop	r27
+ 1f2:	af 91       	pop	r26
+ 1f4:	9f 91       	pop	r25
+ 1f6:	8f 91       	pop	r24
+ 1f8:	2f 91       	pop	r18
+ 1fa:	0f 90       	pop	r0
+ 1fc:	0f be       	out	0x3f, r0	; 63
+ 1fe:	0f 90       	pop	r0
+ 200:	1f 90       	pop	r1
+ 202:	18 95       	reti
+
+00000204 <__vector_3>:
+ISR(INT2_vect)
+{
+ 204:	1f 92       	push	r1
+ 206:	0f 92       	push	r0
+ 208:	0f b6       	in	r0, 0x3f	; 63
+ 20a:	0f 92       	push	r0
+ 20c:	11 24       	eor	r1, r1
+ 20e:	2f 93       	push	r18
+ 210:	8f 93       	push	r24
+ 212:	9f 93       	push	r25
+ 214:	af 93       	push	r26
+ 216:	bf 93       	push	r27
+	Set_bit(PORTD,7) ;
+ 218:	82 b3       	in	r24, 0x12	; 18
+ 21a:	93 b3       	in	r25, 0x13	; 19
+ 21c:	a4 b3       	in	r26, 0x14	; 20
+ 21e:	b5 b3       	in	r27, 0x15	; 21
+ 220:	80 68       	ori	r24, 0x80	; 128
+ 222:	82 bb       	out	0x12, r24	; 18
+ 224:	93 bb       	out	0x13, r25	; 19
+ 226:	a4 bb       	out	0x14, r26	; 20
+ 228:	b5 bb       	out	0x15, r27	; 21
+ 22a:	2f e3       	ldi	r18, 0x3F	; 63
+ 22c:	8d e0       	ldi	r24, 0x0D	; 13
+ 22e:	93 e0       	ldi	r25, 0x03	; 3
+ 230:	21 50       	subi	r18, 0x01	; 1
+ 232:	80 40       	sbci	r24, 0x00	; 0
+ 234:	90 40       	sbci	r25, 0x00	; 0
+ 236:	e1 f7       	brne	.-8      	; 0x230 <__vector_3+0x2c>
+ 238:	00 c0       	rjmp	.+0      	; 0x23a <__vector_3+0x36>
+ 23a:	00 00       	nop
+	_delay_ms(1000);
+}
+ 23c:	bf 91       	pop	r27
+ 23e:	af 91       	pop	r26
+ 240:	9f 91       	pop	r25
+ 242:	8f 91       	pop	r24
+ 244:	2f 91       	pop	r18
+ 246:	0f 90       	pop	r0
+ 248:	0f be       	out	0x3f, r0	; 63
+ 24a:	0f 90       	pop	r0
+ 24c:	1f 90       	pop	r1
+ 24e:	18 95       	reti
+
+00000250 <_exit>:
+ 250:	f8 94       	cli
+
+00000252 <__stop_program>:
+ 252:	ff cf       	rjmp	.-2      	; 0x252 <__stop_program>
