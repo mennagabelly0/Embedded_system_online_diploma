@@ -1,0 +1,66 @@
+22:52:57 **** Build of configuration Debug for project PULL-UP-DOWN_AND_HighZ_GPIO ****
+make -j8 all 
+arm-none-eabi-gcc -mcpu=cortex-m3 -g3 -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f103c6tx.d" -MT"Startup/startup_stm32f103c6tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f103c6tx.o" "../Startup/startup_stm32f103c6tx.s"
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "PULL-UP-DOWN_AND_HighZ_GPIO.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\learn in depth Assignment\Unit-7\lesson 1\PULL-UP-DOWN_AND_HighZ_GPIO\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PULL-UP-DOWN_AND_HighZ_GPIO.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PULL-UP-DOWN_AND_HighZ_GPIO.elf
+ 
+arm-none-eabi-size   PULL-UP-DOWN_AND_HighZ_GPIO.elf 
+arm-none-eabi-objdump -h -S  PULL-UP-DOWN_AND_HighZ_GPIO.elf  > "PULL-UP-DOWN_AND_HighZ_GPIO.list"
+arm-none-eabi-objcopy  -O binary  PULL-UP-DOWN_AND_HighZ_GPIO.elf  "PULL-UP-DOWN_AND_HighZ_GPIO.bin"
+   text	   data	    bss	    dec	    hex	filename
+    884	      8	   1568	   2460	    99c	PULL-UP-DOWN_AND_HighZ_GPIO.elf
+Finished building: default.size.stdout
+ 
+Finished building: PULL-UP-DOWN_AND_HighZ_GPIO.list
+Finished building: PULL-UP-DOWN_AND_HighZ_GPIO.bin
+ 
+ 
+23:46:01 **** Incremental Build of configuration Debug for project PULL-UP-DOWN_AND_HighZ_GPIO ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc -o "PULL-UP-DOWN_AND_HighZ_GPIO.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\learn in depth Assignment\Unit-7\lesson 1\PULL-UP-DOWN_AND_HighZ_GPIO\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PULL-UP-DOWN_AND_HighZ_GPIO.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PULL-UP-DOWN_AND_HighZ_GPIO.elf
+ 
+arm-none-eabi-objdump -h -S  PULL-UP-DOWN_AND_HighZ_GPIO.elf  > "PULL-UP-DOWN_AND_HighZ_GPIO.list"
+arm-none-eabi-objcopy  -O binary  PULL-UP-DOWN_AND_HighZ_GPIO.elf  "PULL-UP-DOWN_AND_HighZ_GPIO.bin"
+arm-none-eabi-size   PULL-UP-DOWN_AND_HighZ_GPIO.elf 
+   text	   data	    bss	    dec	    hex	filename
+    884	      8	   1568	   2460	    99c	PULL-UP-DOWN_AND_HighZ_GPIO.elf
+Finished building: default.size.stdout
+Finished building: PULL-UP-DOWN_AND_HighZ_GPIO.list
+Finished building: PULL-UP-DOWN_AND_HighZ_GPIO.bin
+ 
+ 
+ 
+00:16:02 **** Incremental Build of configuration Debug for project PULL-UP-DOWN_AND_HighZ_GPIO ****
+make -j8 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -DDEBUG -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc -o "PULL-UP-DOWN_AND_HighZ_GPIO.elf" @"objects.list"   -mcpu=cortex-m3 -T"D:\learn in depth Assignment\Unit-7\lesson 1\PULL-UP-DOWN_AND_HighZ_GPIO\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PULL-UP-DOWN_AND_HighZ_GPIO.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PULL-UP-DOWN_AND_HighZ_GPIO.elf
+ 
+arm-none-eabi-objdump -h -S  PULL-UP-DOWN_AND_HighZ_GPIO.elf  > "PULL-UP-DOWN_AND_HighZ_GPIO.list"
+arm-none-eabi-objcopy  -O binary  PULL-UP-DOWN_AND_HighZ_GPIO.elf  "PULL-UP-DOWN_AND_HighZ_GPIO.bin"
+arm-none-eabi-size   PULL-UP-DOWN_AND_HighZ_GPIO.elf 
+arm-none-eabi-objcopy  -O ihex  PULL-UP-DOWN_AND_HighZ_GPIO.elf  "PULL-UP-DOWN_AND_HighZ_GPIO.hex"
+   text	   data	    bss	    dec	    hex	filename
+    884	      8	   1568	   2460	    99c	PULL-UP-DOWN_AND_HighZ_GPIO.elf
+Finished building: default.size.stdout
+ 
+Finished building: PULL-UP-DOWN_AND_HighZ_GPIO.bin
+Finished building: PULL-UP-DOWN_AND_HighZ_GPIO.list
+Finished building: PULL-UP-DOWN_AND_HighZ_GPIO.hex
+ 
+ 
+ 
+00:18:33 **** Incremental Build of configuration Debug for project PULL-UP-DOWN_AND_HighZ_GPIO ****
+make -j8 all 
+arm-none-eabi-size   PULL-UP-DOWN_AND_HighZ_GPIO.elf 
+   text	   data	    bss	    dec	    hex	filename
+    884	      8	   1568	   2460	    99c	PULL-UP-DOWN_AND_HighZ_GPIO.elf
+Finished building: default.size.stdout
+ 

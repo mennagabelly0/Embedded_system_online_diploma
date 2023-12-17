@@ -1,0 +1,10 @@
+00:18:33 **** Incremental Build of configuration Debug for project PULL-UP-DOWN_AND_HighZ_GPIO ****
+make -j8 all 
+arm-none-eabi-size   PULL-UP-DOWN_AND_HighZ_GPIO.elf 
+   text	   data	    bss	    dec	    hex	filename
+    884	      8	   1568	   2460	    99c	PULL-UP-DOWN_AND_HighZ_GPIO.elf
+Finished building: default.size.stdout
+ 
+
+00:18:33 Build Finished. 0 errors, 0 warnings. (took 260ms)
+

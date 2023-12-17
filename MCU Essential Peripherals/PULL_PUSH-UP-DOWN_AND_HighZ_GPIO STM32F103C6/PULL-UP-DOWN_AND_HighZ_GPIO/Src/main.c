@@ -1,0 +1,110 @@
+/**
+ ******************************************************************************
+ * @file           : main.c
+ * @author         : Menna_Gabely
+ * @brief          : Main program body
+ ******************************************************************************
+ * @attention
+ *
+ * <h2><center>&copy; Copyright (c) 2023 STMicroelectronics.
+ * All rights reserved.</center></h2>
+ *
+ * This software component is licensed by ST under BSD 3-Clause license,
+ * the "License"; You may not use this file except in compliance with the
+ * License. You may obtain a copy of the License at:
+ *                        opensource.org/licenses/BSD-3-Clause
+ *
+ ******************************************************************************
+ */
+
+#include "stdint.h"
+#include "stdio.h"
+#include "stdlib.h"
+
+//RCC
+#define RCC_BASE  	    0x40021000
+#define RCC_APB2ENR		*(volatile uint32_t *)(RCC_BASE + 0x18)
+#define RCC_IOPAEN  	(1<<2)      //BIT FIELDS
+
+
+//GPIO REGISTERS ADRESSESS
+//GPIOA
+#define GPIOA_BASE		0x40010800
+#define GPIOA_CRH		*(volatile uint32_t *)(GPIOA_BASE + 0x04)
+#define GPIOA_CRL		*(volatile uint32_t *)(GPIOA_BASE + 0x00)
+#define GPIOA_ODR		*(volatile uint32_t *)(GPIOA_BASE + 0x0c)
+#define GPIOA_IDR		*(volatile uint32_t *)(GPIOA_BASE + 0x08)
+#define GPIOA13 		(1UL<<13) //BIT FIELDS
+//GPIOB
+#define GPIOB_BASE		0x40010C00
+#define GPIOB_CRH		*(volatile uint32_t *)(GPIOB_BASE + 0x04)
+#define GPIOB_CRL		*(volatile uint32_t *)(GPIOB_BASE + 0x00)
+#define GPIOB_ODR		*(volatile uint32_t *)(GPIOB_BASE + 0x0c)
+#define GPIOB_IDR		*(volatile uint32_t *)(GPIOB_BASE + 0x08)
+
+
+void clock_init(){
+	// Enable clock GPIOA
+	RCC_APB2ENR |= RCC_IOPAEN ;
+	// Enable clock GPIOB
+	RCC_APB2ENR |= (1<<3) ;
+}
+
+void GPIO_init(){
+	// Reset to CNF GPIOA
+	GPIOA_CRH = 0 ;
+	GPIOA_CRL = 0 ;
+	GPIOA_ODR = 0 ;
+
+	// CNFy[1:0] : 01: Floating input (reset state)
+	//GPIOA_CRL |= 1<<6 ;
+	GPIOA_CRL |= (0b01<<6) ;
+	//MODEy[1:0]: 00: Input mode (reset state)
+	//GPIOA_CRL |= 0<<4 ;
+	GPIOA_CRL &= ~(0b11<<4) ;
+
+	//PORTB1 is an output as a PUSH/PULL Mode
+	// CNFy[1:0] : 00: General purpose output push-pull
+	GPIOB_CRL &= ~(0b11<<6) ;
+	//MODEy[1:0]: 01: Output mode, max speed 10 MHz.
+	GPIOB_CRL |= (0b01<<4) ;
+
+	/////////////////////////////////////////////////
+
+	//00: Input mode (reset state)
+	GPIOA_CRH  &= ~(0b11<<20) ;
+	// CNFy[1:0] : 01: Floating input (reset state)
+	GPIOA_CRH |= (0b01<<22) ;
+
+	//PORTB is an output as a PUSH/PULL Mode
+	//MODEy[1:0]: 01: Output mode, max speed 10 MHz.
+	GPIOB_CRH |= (0b01<<20) ;
+	// CNFy[1:0] : 00: General purpose output push-pull
+	GPIOB_CRH &= ~(0b11<<22) ;
+
+	}
+
+void WAITING(uint32_t time){
+	uint32_t i ,j ;
+	for(i= 0 ; i<time ; i++)
+		for(j= 0 ; j<255 ; j++) ;
+}
+int main(void)
+{
+	clock_init() ;
+	GPIO_init() ;
+
+	while(1){
+
+		if(((GPIOA_IDR &(1<<1)) >> 1) == 0){
+			GPIOB_ODR ^= 1<<1 ;
+			while(((GPIOA_IDR &(1<<1)) >> 1) == 0) ; // single pressing
+		}
+
+		if(((GPIOA_IDR &(1<<13)) >> 13) == 1){
+					GPIOB_ODR ^= 1<<13 ;// multiple pressing
+		}
+		WAITING(1);
+	}
+
+}
