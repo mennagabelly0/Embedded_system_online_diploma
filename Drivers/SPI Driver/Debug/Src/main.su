@@ -1,0 +1,4 @@
+main.c:34:6:Clock_init	4	static
+main.c:45:6:Menna_SPI1_IRQ_CallBack	16	static
+main.c:59:6:Menna_UART1_CallBack	4	static
+main.c:72:5:main	56	static
