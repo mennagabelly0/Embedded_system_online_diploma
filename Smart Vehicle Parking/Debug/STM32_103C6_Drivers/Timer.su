@@ -1,0 +1,3 @@
+Timer.c:10:6:Timer2_init	4	static
+Timer.c:19:6:dus	16	static
+Timer.c:25:6:dms	24	static
